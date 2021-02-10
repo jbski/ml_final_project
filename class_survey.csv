@@ -1,0 +1,28 @@
+Timestamp,Course Location,City,Gender ,Do you have relevant experience in data science ?,Education,Major ,Industry of Current or Last Job ,Company Size 
+2/6/2021 10:09,UCSD,Encinitas,Male,Has relevant experience,Undergrad,"Sciences- Bio, Chem, other..",Hospitality,0-50
+2/6/2021 10:09,UCSD,San Diego,Male,Has relevant experience,Undergrad,"Sciences- Data, Computer",Other,100-150
+2/6/2021 10:09,UCSD,Anaheim,Female,Has no relevant experience,Undergrad,Business-Finance/Accounting,Other,0-50
+2/6/2021 10:09,UCSD,San Francisco,Female,Has some relevant experience,Undergrad,Business-Finance/Accounting,Tech/Start-up,300+
+2/6/2021 10:09,UCSD,San Diego,Male,Has some relevant experience,Undergrad,Business-Finance/Accounting,Other,0-50
+2/6/2021 10:10,UCSD,"San Diego, CA",Female,Has no relevant experience,Highschool,No Major,Hospitality,150-300
+2/6/2021 10:10,UCSD,San Diego,Female,Has no relevant experience,Undergrad,Business-Finance/Accounting,Other,0-50
+2/6/2021 10:10,UCSD,San Diego CA,Female,Has some relevant experience,Doctorate,Neurophysiology,Other,300+
+2/6/2021 10:11,UCSD,Poway,Female,Has some relevant experience,Masters,Liberal Arts,Tech/Start-up,50-100
+2/6/2021 10:12,UCSD,Modesto,Female,Has no relevant experience,Bachelors Degree,Information Technology,Tech/Start-up,300+
+2/6/2021 10:12,UCSD,San Diego,Male,Has some relevant experience,Undergrad,"Sciences- Data, Computer",Other,300+
+2/6/2021 10:12,UCSD,Fullerton,Male,Has some relevant experience,Undergrad,Business-Finance/Accounting,Other,50-100
+2/6/2021 10:12,UCSD,San Diego,Male,Has no relevant experience,Undergrad,Business Marketing,Media Entertainment,0-50
+2/6/2021 10:12,UCSD,San Diego,Female,Has some relevant experience,Undergrad,Engineering,Other,300+
+2/6/2021 10:13,UCSD,San Diego,Male,Has some relevant experience,Masters,"Sciences- Bio, Chem, other..",Other,0-50
+2/6/2021 10:14,UCSD,Los Angeles,Male,Has some relevant experience,Masters,"Sciences- Data, Computer",Media Entertainment,300+
+2/6/2021 10:14,UCSD,Oakland,Female,Has no relevant experience,Undergrad,Liberal Arts,Tech/Start-up,300+
+2/6/2021 11:05,UCSD,San Diego,Male,Has some relevant experience,Undergrad,"Sciences- Data, Computer",Other,300+
+2/6/2021 11:38,UCSD,San Diego,Male,Has some relevant experience,Masters,Education,Other,100-150
+2/6/2021 11:53,UCSD,San Diego,Male,Has some relevant experience,Undergrad,Business-Finance/Accounting,Hospitality,0-50
+2/6/2021 12:01,UCSD,San Diego,Male,Has some relevant experience,Masters,"Sciences- Bio, Chem, other..",Other,0-50
+2/6/2021 14:17,UCSD,Fresno,Female,Has some relevant experience,Masters,Business-Finance/Accounting,Other,300+
+2/6/2021 14:18,UCSD,San Francisco,Female,Has some relevant experience,Undergrad,Business-Finance/Accounting,Other,300+
+2/6/2021 20:28,UCSD,San Diego,Male,Has some relevant experience,Undergrad,"Sciences- Data, Computer",Other,300+
+2/8/2021 16:47,UCSD,Las Vegas,Male,Has relevant experience,Undergrad,"Sciences- Data, Computer",Other,300+
+2/9/2021 15:29,Berkeley,Santa Clara,Female,Has some relevant experience,Masters,Public Administration,Other,300+
+2/9/2021 18:38,UCSD,LA,Female,Has some relevant experience,PhD,"Sciences- Bio, Chem, other..",Other,300+
