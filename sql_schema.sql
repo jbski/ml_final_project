@@ -37,3 +37,16 @@ CREATE TABLE test_balanced (
 SELECT * FROM test_balanced;
 
 SELECT * FROM response;
+
+Update response
+SET location = '',
+	gender = '',
+	experience = '',
+	education = '',
+	major = '',
+	industry = '',
+	company_size = ''
+WHERE id > 0
+
+DELETE from response
+WHERE id > 0
