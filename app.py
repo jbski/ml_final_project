@@ -11,7 +11,9 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 
 # Database
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:password@localhost:5432/job_change"
+heroku_database_url = 'postgres://tutdwubbdbjifp:08e0b6d5f87f94b7881b70ccb4e97925ac07a62e5b9040121532d6e6f2dccda6@ec2-34-230-167-186.compute-1.amazonaws.com:5432/d1523ss5ad4q8a'
+# app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:password@localhost:5432/job_change"
+app.config['SQLALCHEMY_DATABASE_URI'] = heroku_database_url
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basedir,'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
 db = SQLAlchemy(app)
