@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired
 
 
 class AddForm(FlaskForm):
-    location = SelectField('Course Location: ',choices=[('Berkely', 'Berkeley'), ('UCSD', 'UCSD')])
+    location = SelectField('Course Location: ',choices=[('Berkely', 'Berkely'), ('UCSD', 'UCSD')])
     gender = SelectField('Gender: ',choices=[('Male', 'Male'), ('Female', 'Female')])
     experience = SelectField('Relevant Data Science Experience: ',choices=[('yes', 'Has Relevant Experience'), ('some', 'Has Some Relevant Experience'), ('none', 'Has No Relevant Experience')])
     education = SelectField('Education: ',choices=[('HS', 'High School'), ('AA', 'AA'), ('Undergrad', 'Undergrad'), ('Masters', 'Masters'), ('Other', 'Other')])
@@ -14,8 +14,8 @@ class AddForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class DelForm(FlaskForm):
-    id = IntegerField("Id Number of person to remove: ")
-    submit = SubmitField("Clear Records")
+    id = IntegerField("Enter ID of person to remove: ")
+    submit = SubmitField("Clear Record")
 
 
     

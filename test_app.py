@@ -5,17 +5,14 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 
-
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'mysecretkey'
 
 # Database
 basedir = os.path.abspath(os.path.dirname(__file__))
-# heroku_database_url = 'postgres://tutdwubbdbjifp:08e0b6d5f87f94b7881b70ccb4e97925ac07a62e5b9040121532d6e6f2dccda6@ec2-34-230-167-186.compute-1.amazonaws.com:5432/d1523ss5ad4q8a'
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:password@localhost:5432/job_change"
-# app.config['SQLALCHEMY_DATABASE_URI'] = heroku_database_url
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basedir,'data.sqlite')
+# app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:password@localhost:5432/job_change"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basedir,'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
@@ -66,7 +63,6 @@ def index():
 @app.route('/add', methods=['GET','POST'])
 def add_person():
     form = AddForm()
-        
     
     if form.validate_on_submit():
         location = form.location.data
@@ -81,16 +77,23 @@ def add_person():
         db.session.add(new_entry)        
         db.session.commit()    
 
-        return redirect(url_for('list_person'))
+        return redirect(url_for('Model_Prediction'))
     
     return render_template('add.html',form=form)
 
+@app.route('/predict')
+def Model_Prediction(X):
+    # load model
+    model = joblib.load("HR_LRmodel_trained_V2.h5")
+    # Survey Predictions
+    prediction = model.predict(X)
+    print(f"First 10 Predictions:   {prediction}")
+    print("Model: " + model.__class__.__name__)
+    return model
 
 @app.route('/list')
 def list_person():
-    person = Person.query.all()  
-    person = person[-1]
-
+    person = Person.query.all()
     return render_template('list.html', person=person)
 
 @app.route('/delete', methods=['GET', 'POST'])
@@ -100,9 +103,10 @@ def delete_person():
     
     if form.validate_on_submit():
         id = form.id.data
-        person = Person.query.get(id)  
+        person= Person.query.get(id)        
         db.session.delete(person)
-        db.session.commit()        
+        db.session.commit()
+        
 
         return redirect(url_for('list_person'))
     
