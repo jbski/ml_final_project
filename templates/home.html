@@ -1,8 +1,83 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="jumbotron">
-    <h1>Welcome</h1>
+    <h1>Welcome to JobSwitch Predictor</h1>
+    <p>Explore the charts below for an explanation of our project, dataset, and analysis for Project 3 - Demystifying
+        Machine Learning</p>
 </div>
-    
 
+<div class="container">
+    <h2>Job Switching</h2>
+    <hr>
+    </hr>
+
+    <p>
+        This database from Kaggle was created to predict a candidate's decision to switch jobs, based upon the HR
+        metrics collected (see 'The Dataset', below). The dataset consists of 1,612 records used to train and test our
+        ML models. We collected
+        survey data to conduct predictions with the model we developed. Please refer to the following link for more
+        details:
+        <a
+            href="https://www.kaggle.com/arashnic/hr-analytics-job-change-of-data-scientists">https://www.kaggle.com/arashnic/hr-analytics-job-change-of-data-scientists</a>
+    </p>
+
+    <i>
+        <p>"Context and Content
+            A company which is active in Big Data and Data Science wants to hire data scientists among people who
+            successfully pass some courses which conduct by the company. Many people signup for their training. Company
+            wants to know which of these candidates are really wants to work for the company after training or looking
+            for a
+            new employment because it helps to reduce the cost and time as well as the quality of training or planning
+            the
+            courses and categorization of candidates. Information related to demographics, education, experience are in
+            hands from candidates signup and enrollment.</p>
+
+        <p>This dataset designed to understand the factors that lead a person to leave current job for HR researches
+            too."
+    </i>
+    </p>
+
+
+
+    <h2>The Dataset</h2>
+    <hr>
+    </hr>
+
+    <p> The following HR metrics of potential employees were included within the CSV:</p>
+
+    <p>enrollee_id : Unique ID for candidate</p>
+
+    <p>city: City code</p>
+
+    <p>gender: Gender of candidate</p>
+
+    <p>relevent_experience: Relevant experience of candidate</p>
+
+    <p>enrolled_university: Type of University course enrolled if any</p>
+
+    <p>education_level: Education level of candidate</p>
+
+    <p>major_discipline :Education major discipline of candidate</p>
+
+    <p>experience: Candidate total experience in years</p>
+
+    <p>company_size: No of employees in current employer's company</p>
+
+    <p>company_type : Type of current employer</p>
+
+    <p>target: 0 – Not looking for job change, 1 – Looking for a job change</p>
+
+</div>
+<div class="col-md-10">
+    <div id="figure-area" class="">
+        <h2 class="text-center">ML Classification Model Development</h2>
+
+        <img class="nav-ufo" src="static/images/Rawaf/KNN_eval_1st.png">
+        <img class="nav-ufo" src="static/images/Rawaf/AUC_comparison_1st.png">
+
+    
+        <img class="nav-ufo" src="static/images/Rawaf/KNN_eval_2nd.png">
+        <img class="nav-ufo" src="static/images/Rawaf/AUC_comparison_2nd.png">
+    </div>
+</div>
 {% endblock %}

@@ -59,6 +59,14 @@ class Person(db.Model):
 def index():
     return render_template('home.html')
 
+@app.route('/charts')
+def charts():
+    return render_template('charts.html')
+
+@app.route('/survey')
+def survey():
+    return render_template('survey.html')
+
 
 @app.route('/add', methods=['GET','POST'])
 def add_person():
