@@ -4,13 +4,12 @@ from wtforms.validators import DataRequired
 
 
 class AddForm(FlaskForm):
-    location = SelectField('Course Location: ',choices=[('Berkely', 'Berkely'), ('UCSD', 'UCSD')])
     gender = SelectField('Gender: ',choices=[('Male', 'Male'), ('Female', 'Female')])
-    experience = SelectField('Relevant Data Science Experience: ',choices=[('yes', 'Has Relevant Experience'), ('some', 'Has Some Relevant Experience'), ('none', 'Has No Relevant Experience')])
-    education = SelectField('Education: ',choices=[('HS', 'High School'), ('AA', 'AA'), ('Undergrad', 'Undergrad'), ('Masters', 'Masters'), ('Other', 'Other')])
-    major = SelectField('Major: ',choices=[('Liberal Arts', 'Liberal Arts'), ('Business-Finance/Accounting', 'Business-Finance/Accounting'), ('Sciences- Data, Computer', 'Sciences- Data, Computer'), ('Sciences- Bio, Chem, other..', 'Sciences- Bio, Chem, other..'), ('Other', 'Other')])
-    industry = SelectField('Industry: ',choices=[('Tech/Start-up', 'Tech/Start-up'), ('Hospitality', 'Hospitality'), ('Media Entertainment', 'Media Entertainment'), ('Financial Institutions/Banking', 'Financial Institutions/Banking'), ('Other', 'Other')])
-    company_size = SelectField('Company Size: ',choices=[('1-50', '1-50'), ('50-100', '50-100'), ('100-150', '100-150'), ('150-300', '150-300'), ('300+', '300+')])
+    relevant_experience = SelectField('Relevant Data Science Experience: ',choices=[('yes', 'Has relevant experience'), ('none', 'No relevant experience')])
+    education_level = SelectField('Education: ',choices=[('Graduate', 'Graduate'), ('Masters', 'Masters'), ('Phd', 'Phd')])
+    major_discipline = SelectField('Major: ',choices=[('Arts', 'Arts'), ('Business Degree', 'Business Degree'), ('STEM', 'STEM'), ('No Major', 'No Major'),('Humanities', 'Humanities'), ('Other', 'Other')])
+    company_type = SelectField('Industry: ',choices=[('Early Stage Startup', 'Early Stage Startup'), ('Funded Startup', 'Funded Startup'), ('NGO', 'NGO'), ('Other', 'Other'), ('Public Sector', 'Public Sector'),('Pvt Ltd', 'Pvt Ltd')])
+    company_size = SelectField('Company Size: ',choices=[('0-49', '0-49'), ('50-99', '50-99'), ('100-499', '100-499'), ('500-999', '500-999'), ('1000', '4999'),('5000', '9999'),('10000+')])
     submit = SubmitField('Submit')
 
 class DelForm(FlaskForm):

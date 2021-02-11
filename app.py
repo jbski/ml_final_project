@@ -32,7 +32,6 @@ class Person(db.Model):
     __tablename__ = 'response'
 
     id = db.Column(db.Integer, primary_key=True)
-    location = db.Column(db.Text)
     gender = db.Column(db.Text)
     experience = db.Column(db.Text)
     education = db.Column(db.Text)
@@ -40,8 +39,7 @@ class Person(db.Model):
     industry = db.Column(db.Text)
     company_size = db.Column(db.Text)
     
-    def __init__(self,location,gender,experience,education,major,industry,company_size):
-        self.location = location
+    def __init__(self,gender,experience,education,major,industry,company_size):
         self.gender = gender
         self.experience = experience
         self.education = education
@@ -50,8 +48,7 @@ class Person(db.Model):
         self.company_size = company_size
         
     def __repr__(self):
-        return f'Location: {self.location}, Gender: {self.gender}, ' \
-               f'Experience: {self.experience}, Education: {self.education}, Major: {self.major}, ' \
+        return f'Gender: {self.gender}, Experience: {self.experience}, Education: {self.education}, Major: {self.major}, ' \
                f'Industry: {self.industry}, Company Size: {self.company_size}'
 
     
@@ -69,19 +66,18 @@ def add_person():
         
     
     if form.validate_on_submit():
-        location = form.location.data
         gender = form.gender.data
-        experience = form.experience.data
-        education = form.education.data
-        major = form.major.data
-        industry = form.industry.data
+        experience = form.relevant_experience.data
+        education = form.education_level.data
+        major = form.major_discipline.data
+        industry = form.company_type.data
         company_size = form.company_size.data
 
         new_entry = Person(location,gender,experience,education,major,industry,company_size)
         db.session.add(new_entry)        
         db.session.commit()    
 
-        return redirect(url_for('list_person'))
+        return redirect(url_for('Model_Prediction'))
     
     return render_template('add.html',form=form)
 
@@ -92,6 +88,20 @@ def list_person():
     person = person[-1]
 
     return render_template('list.html', person=person)
+
+@app.route('/predict')
+def Model_Prediction():
+    X = Person.query.all()
+    X = str(X[-1]).split()[1]
+    
+    
+    # load model
+    # model = joblib.load("HR_LRmodel_trained_V2.h5")
+    # # Survey Predictions
+    # prediction = model.predict(X)
+    # print(f"First 10 Predictions:   {prediction}")
+    # print("Model: " + model.__class__.__name__)
+    return render_template('predict.html', X=X)
 
 @app.route('/delete', methods=['GET', 'POST'])
 def delete_person():
