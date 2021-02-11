@@ -85,7 +85,7 @@ def add_person():
         db.session.add(new_entry)        
         db.session.commit()    
 
-        return redirect(url_for('Model_Prediction'))
+        return redirect(url_for('list_person'))
     
     return render_template('add.html',form=form)
 
@@ -93,21 +93,21 @@ def add_person():
 @app.route('/list')
 def list_person():
     person = Person.query.all()  
-    person = str(person[-1]).split()
+    person = str(person[-1])
 
     return render_template('list.html', person=person)
 
 @app.route('/predict')
 def Model_Prediction():
     # gender = Person.query.all()
-    Gender
-    gender = str(gender[-1]).split()[1].replace(',','')
+    # Gender
+    # gender = str(gender[-1]).split()[1].replace(',','')
     # Experience
-    experience = Person.query.all()
-    experience = str(experience[-1]).split()[3:6]
-    experience = ','.join(experience).replace(',',' ')
+    # experience = Person.query.all()
+    # experience = str(experience[-1]).split()[3:6]
+    # experience = ','.join(experience).replace(',',' ')
     
-    
+    X = 'Are you likely to change jobs: '
     
     # load model
     # model = joblib.load("HR_LRmodel_trained_V2.h5")
@@ -115,7 +115,7 @@ def Model_Prediction():
     # prediction = model.predict(X)
     # print(f"First 10 Predictions:   {prediction}")
     # print("Model: " + model.__class__.__name__)
-    return render_template('predict.html', experience=experience)
+    return render_template('predict.html', X=X)
 
 @app.route('/delete', methods=['GET', 'POST'])
 def delete_person():
@@ -124,9 +124,12 @@ def delete_person():
     
     if form.validate_on_submit():
         id = form.id.data
-        person = Person.query.get(id)  
-        db.session.delete(person)
-        db.session.commit()        
+        person = Person.query.get(id)
+        try:  
+            db.session.delete(person)
+            db.session.commit()   
+        except:
+            db.session.rollback()     
 
         return redirect(url_for('list_person'))
     
