@@ -17,7 +17,7 @@ var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{
 
 function createMarkers(data) {
   data = eval(data);
-  console.log(data[0]);
+  // console.log(data[0]);
 
   // Initialize an array to hold bike markers
   var cityMarkers = [];
