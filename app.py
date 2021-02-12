@@ -67,6 +67,10 @@ def charts():
 def survey():
     return render_template('survey.html')
 
+@app.route('/map')
+def map():
+    return render_template('map.html')
+
 
 @app.route('/add', methods=['GET','POST'])
 def add_person():
