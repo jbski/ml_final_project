@@ -12,11 +12,12 @@
     </hr>
 
     <p>
-        This database from Kaggle was created to predict a candidate's decision to switch jobs, based upon the HR
-        metrics collected (see 'The Dataset', below). The dataset consists of 1,612 records used to train and test our
-        ML models. We collected
-        survey data to conduct predictions with the model we developed. Please refer to the following link for more
-        details:
+        This database from Kaggle was created to help a theoretical company predict a job candidate's decision to switch
+        jobs, based upon the HR
+        metrics collected (see 'The Dataset', below). The original dataset consists of over 19,000 records, which after
+        pre-processing resulted in 1,612 being used to train and test our ML models. We also collected survey data to
+        conduct predictions with the model we developed. Please refer to the following link for more
+        details on the original data:
         <a
             href="https://www.kaggle.com/arashnic/hr-analytics-job-change-of-data-scientists">https://www.kaggle.com/arashnic/hr-analytics-job-change-of-data-scientists</a>
     </p>
@@ -33,7 +34,7 @@
             hands from candidates signup and enrollment.</p>
 
         <p>This dataset designed to understand the factors that lead a person to leave current job for HR researches
-            too."
+            too." - Kaggle Description
     </i>
     </p>
 
@@ -70,17 +71,55 @@
 </div>
 <div class="col-md-10">
     <div id="figure-area" class="">
+        <br>
         <h2 class="text-center">ML Classification Model Development</h2>
 
-        <p>Version 1</p>
+        <p>Can we create a Machine Learning model that will be able to predict whether members of our bootcamp class are
+            seeking to change jobs? In order to answer this question, we had to train & test a range of Classification
+            Models in order to select the optimal one. Classification models predict outcomes rather than values, which
+            in our case the outcomes were either 'Switch jobs' or 'Won't switch jobs'. The models we evaluated were
+            Logistic Regression, Random Forest, and K Nearest Neighbor (KNN) (all available from SciKit Learn). We used
+            an AUC-ROC Curve to compare the accuracy of our three trained classification models</p>
 
+        <p>
+        <h3>Pre-processing</h3><br>
+        To train our model, our first step was to clean and balance our data: we dropped all null values, and randomly
+        sampled an equal number of both Male and Female candidates (since the original dataset was highly skewed towards
+        males). This left us with 1,612 records which we then Binary Encoded in order to fit and train our models.</p>
+
+        <p>
+        <h3>Training & Testing</h3><br>
+        The first version of our models were able to correctly classify our test data between 53-60% of the time. The
+        best performer was the Logistic Regression model, as shown in the first AUC comparison graph.</p>
+        <h4>AUC Version 1</h4>
+        <img class="nav-ufo" src="static/images/Rawaf/AUC_comparison_1st.png"><br>
+        <p>For the KNN models, we had to iterate over a series of K-values to find the optimum. As seen in the graph
+            below, we chose K=7.</p>
+        <h4>KNN Version 1</h4>
         <img class="nav-ufo" src="static/images/Rawaf/KNN_eval_1st.png">
-        <img class="nav-ufo" src="static/images/Rawaf/AUC_comparison_1st.png">
 
-        <p>Version 2</p>
-    
-        <img class="nav-ufo" src="static/images/Rawaf/KNN_eval_2nd.png">
+        <p>
+        <h3>Survey, Retraining & Prediction</h3><br>
+        However after creating our class survey, we found that we couldn't collect data on a number of dimensions that
+        had been used to train our first models; namely, City Development Index, Years of Experience, Last New Job, and
+        Training Hours. So we had to re-train our models on fewer dimensions. Subsequently, the second versions of our
+        models were only able to correctly classify our test data between 46-56% of the time (no better than chance).
+        Once again, the best performer was Logistic Regression, as shown in the second AUC comparison graph.</p>
+        <h4>AUC Version 2</h4>
+        <img class="nav-ufo" src="static/images/Rawaf/KNN_eval_2nd.png"><br>
+        <p>For the second KNN model, the worst performer, we struggled to find a valid K-value, as seen in the graph
+            below.</p>
+        <h4>KNN Version 2</h4>
         <img class="nav-ufo" src="static/images/Rawaf/AUC_comparison_2nd.png">
+
+        <p>
+        <h3>Conclusion</h3><br>
+        Further investigation of other projects using this same dataset revealed that the most predictive factors for
+        job switching were City Development Index and Years of Experience, which probably explains the degraded
+        performance of our three models in their second iterations.</p>
+
+
+
     </div>
 </div>
 {% endblock %}
